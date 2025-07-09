@@ -19,6 +19,10 @@ Pre_Commit_Setup:
     JavaScript: ["eslint", "prettier"]
     TypeScript: ["eslint", "prettier"]
     Node: ["eslint", "prettier", "npm-audit"]
+    Bun: ["eslint", "prettier", "bun-audit"]
+    Rust: ["rustfmt", "clippy"]
+    Go: ["gofmt", "golint", "go-vet"]
+    Swift: ["swiftformat", "swiftlint"]
 
   Security_Hooks:
     - "detect-secrets"

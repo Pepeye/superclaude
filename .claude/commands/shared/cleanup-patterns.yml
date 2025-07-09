@@ -5,6 +5,9 @@
 Files: 
   - node_modules (if package-lock exists)
   - dist/, build/, .next/, .nuxt/
+  - target/ (Rust), bin/ (Go)
+  - .astro/, .solid/
+  - DerivedData/ (iOS), .gradle/ (Android)
   - .tmp, temp/, cache/
   - *.log, *.tmp, *.cache
   - .DS_Store, thumbs.db, desktop.ini
@@ -46,6 +49,9 @@ Files:
   - README.md, LICENSE, CHANGELOG
   - .gitignore, .gitattributes
   - package.json, package-lock.json
+  - Cargo.toml, Cargo.lock (Rust)
+  - go.mod, go.sum (Go)
+  - bun.lockb (Bun)
   - Source code in src/, lib/
 
 Code:
