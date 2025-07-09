@@ -156,6 +156,54 @@ GraphQL_Design:
     Caching: ["Field-level caching", "Query result caching", "CDN integration"]
 ```
 
+## gRPC API Patterns
+
+```yaml
+gRPC_Design:
+  Protocol_Buffers:
+    Schema_Definition: ["Message types", "Service definitions", "Field types", "Nested messages"]
+    Versioning: ["Backward compatibility", "Field evolution", "Deprecation strategies"]
+    Code_Generation: ["Multi-language support", "Type safety", "Serialization efficiency"]
+    
+  Service_Design:
+    RPC_Methods:
+      Unary: "Single request/response | Traditional RPC pattern"
+      Server_Streaming: "Single request, stream responses | Real-time data"
+      Client_Streaming: "Stream requests, single response | Upload scenarios"
+      Bidirectional_Streaming: "Stream both ways | Real-time communication"
+      
+    Method_Naming: ["Verb-based names", "Clear action intent", "Consistent patterns"]
+    Error_Handling: ["Status codes", "Error details", "Rich error messages"]
+    
+  Performance_Patterns:
+    Connection_Management: ["Connection pooling", "Keep-alive settings", "Load balancing"]
+    Streaming_Optimization: ["Backpressure handling", "Flow control", "Buffer management"]
+    Compression: ["Message compression", "Stream compression", "Bandwidth optimization"]
+    
+  Security_Patterns:
+    Authentication:
+      TLS: "Transport security | Certificate-based | Mutual authentication"
+      Token_Based: "JWT tokens | API keys | OAuth integration"
+      Interceptors: "Cross-cutting concerns | Authentication middleware"
+      
+    Authorization: ["Role-based access", "Method-level permissions", "Resource-based auth"]
+    
+  Deployment_Patterns:
+    Load_Balancing: ["Client-side balancing", "Proxy-based balancing", "Service mesh"]
+    Service_Discovery: ["DNS-based", "Registry-based", "Kubernetes integration"]
+    Health_Checking: ["Health service", "Liveness probes", "Readiness checks"]
+    
+  Monitoring_Observability:
+    Metrics: ["Request latency", "Error rates", "Connection counts", "Stream metrics"]
+    Tracing: ["Distributed tracing", "Request correlation", "Performance analysis"]
+    Logging: ["Structured logging", "Request/response logging", "Error tracking"]
+    
+  Language_Integration:
+    Rust_Tonic: ["Async by default", "Type safety", "Performance optimized"]
+    Go_gRPC: ["Native support", "Efficient serialization", "Concurrent handling"]
+    Cross_Language: ["Polyglot services", "Schema sharing", "Client generation"]
+```
+
 ## Microservices Architecture Patterns
 
 ```yaml
@@ -247,6 +295,23 @@ Onion_Architecture:
   Center: "Domain model"
   Layers: ["Domain services", "Application services", "Infrastructure"]
   Principles: ["Dependency inversion", "Separation of concerns", "Testability"]
+  
+Modular_Monolith:
+  Definition: "Single deployable unit with well-defined internal module boundaries"
+  Structure: 
+    Modules: ["Independent business domains", "Clear interfaces", "Encapsulated data"]
+    Communication: ["In-process calls", "Shared database", "Event-driven modules"]
+    Boundaries: ["Package/namespace separation", "Interface-based contracts", "Data encapsulation"]
+  Benefits: 
+    Development: ["Faster development", "Easier debugging", "Simple deployment"]
+    Operations: ["Single deployment", "Easier monitoring", "Simplified infrastructure"]
+    Team: ["Reduced coordination", "Faster iteration", "Clear ownership"]
+  Implementation:
+    Module_Design: ["Domain-driven modules", "Layered within modules", "Dependency injection"]
+    Data_Access: ["Module-specific schemas", "Shared database", "Data access layers"]
+    Communication: ["Direct calls", "Internal events", "Shared kernel"]
+  Migration_Path: ["Start as monolith", "Extract modules", "Eventual microservices"]
+  Anti_Patterns: ["Shared mutable state", "Circular dependencies", "Tight coupling"]
 ```
 
 ## Scalability Patterns
