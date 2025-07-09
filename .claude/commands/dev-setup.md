@@ -23,7 +23,17 @@ Examples:
 
 --type flag:
 - node: Node.js/TypeScript project setup
+- bun: Bun runtime environment & tooling
+- solid: Solid.js with Vite & TypeScript tooling
+- astro: Astro static site generator environment
+- rust: Rust toolchain with Cargo & Clippy
+- go: Go development environment & tooling
 - python: Python virtual environment & tooling
+- mojo: Mojo development environment & ML tooling
+- android: Android Studio, SDK, Jetpack Compose tooling
+- ios: Xcode, SwiftUI, iOS development environment
+- grpc: gRPC development with Protocol Buffers
+- graphql: GraphQL development environment
 - react: React + Vite/Next.js configuration
 - fullstack: Complete full-stack environment
 - monorepo: Multi-package monorepo setup

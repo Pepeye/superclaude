@@ -93,6 +93,9 @@ Development lifecycle coverage:
 **Development Commands**
 ```bash
 /build --react --magic --tdd    # Development with AI components
+/build --solid --bun --magic    # Solid.js with Bun runtime
+/build --rust --grpc --tdd      # Rust gRPC services
+/build --android --native --persona-frontend  # Native mobile development
 /dev-setup --ci --monitor       # Environment setup
 /test --coverage --e2e --pup    # Testing strategies
 ```
@@ -137,6 +140,30 @@ SuperClaude's @include template system helps manage token usage:
 /estimate --detailed --worst-case --seq                      # Resource planning
 /scan --security --validate --persona-security               # Security review
 /build --api --tdd --coverage --persona-backend              # Implementation
+```
+
+### Modern Frontend Development
+```bash
+/build --solid --bun --watch --persona-frontend             # Solid.js with Bun runtime
+/build --astro --rust --persona-architect                   # Astro + Rust backend
+/test --coverage --e2e --strict --persona-qa                # Quality assurance
+/deploy --env staging --validate                            # Deployment
+```
+
+### Backend Development
+```bash
+/design --modm --grpc --seq --persona-architect             # Modular monolith design
+/build --rust --grpc --tdd --persona-backend                # Rust gRPC services
+/build --bun-api --gql --persona-backend                    # Bun GraphQL API
+/test --integration --performance --pup                     # Service testing
+```
+
+### Mobile Development
+```bash
+/design --api --modm --gql --persona-architect              # Backend design
+/build --android --rust --persona-frontend                  # Android + Rust backend
+/build --ios --go --grpc --persona-backend                  # iOS + Go gRPC
+/test --e2e --accessibility --pup                          # Mobile testing
 ```
 
 ### Production Issue Resolution

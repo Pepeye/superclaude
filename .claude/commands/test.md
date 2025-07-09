@@ -61,11 +61,34 @@ Examples:
 
 **JavaScript/TypeScript:** Jest (default) | Mocha + Chai | Vitest | Testing Library
 
-**Python:** pytest (default) | unittest | nose2 | doctest
+**Bun Runtime:** Bun test (built-in) | Jest compatibility | Fast execution | TypeScript support
+
+**Solid.js:** Solid Testing Library | Jest + jsdom | Vitest | Component testing
+
+**Astro:** Astro test utils | Vitest | E2E with Playwright | Component islands testing
+
+**Rust:** cargo test (built-in) | Tokio test | Integration tests | Benchmark tests
+- **Axum:** Tower test utilities | HTTP request testing | Middleware testing
+- **Tonic (gRPC):** tonic-build test client | Service testing | Mock servers
+- **Async-GraphQL:** Schema testing | Query validation | Subscription testing
 
 **Go:** Built-in testing | Testify | Ginkgo/Gomega
+- **gRPC:** grpc-go test client | Service testing | Mock generation
 
-**Java:** JUnit 5 | TestNG | Mockito | Spring Test
+**Python:** pytest (default) | unittest | nose2 | doctest
+- **FastAPI:** TestClient | Async testing | Dependency injection testing
+
+**Mojo:** Mojo test framework | Performance testing | ML model validation
+
+**Android (Jetpack Compose):** 
+- **Unit:** JUnit 5 | Mockito | Robolectric
+- **UI:** Compose Testing | Espresso | UI Automator
+- **Integration:** Hilt testing | Room testing | Navigation testing
+
+**iOS (SwiftUI):**
+- **Unit:** XCTest | Quick + Nimble | SwiftTesting
+- **UI:** SwiftUI Testing | XCUITest | ViewInspector
+- **Integration:** Core Data testing | Combine testing | Navigation testing
 
 **Other:** Framework-specific best practices | Native test runners
 
