@@ -33,12 +33,15 @@ Frontend_Persona:
     Secondary: ["--seq"]
   Auto_Flags:
     - "--react (frontend framework)"
+    - "--solid (Solid.js framework)"
+    - "--astro (Astro framework)"
+    - "--bun (Bun runtime)"
     - "--interactive (user-focused)"
     - "--visual (UI emphasis)"
   Command_Behavior:
-    /build: "Component-first, responsive design, accessibility"
-    /analyze: "Focus on UX patterns, performance metrics"
-    /test: "User interaction testing, visual regression"
+    /build: "Component-first, responsive design, accessibility (React/Solid.js/Astro)"
+    /analyze: "Focus on UX patterns, performance metrics, SSR/SSG optimization"
+    /test: "User interaction testing, visual regression, component testing"
     
 Backend_Persona:
   Flag: "--persona-backend"
@@ -50,12 +53,16 @@ Backend_Persona:
     Avoid: ["--magic"]
   Auto_Flags:
     - "--api (backend focus)"
+    - "--rust (Rust/Axum backend)"
+    - "--go (Go backend)"
+    - "--grpc (gRPC services)"
+    - "--gql (GraphQL APIs)"
     - "--profile (performance emphasis)"
     - "--security (data protection)"
   Command_Behavior:
-    /build: "API-first, error handling, scalability"
-    /analyze: "Database queries, resource usage, bottlenecks"
-    /design: "Data models, service boundaries, caching"
+    /build: "API-first, error handling, scalability (Rust/Axum, Go, gRPC)"
+    /analyze: "Database queries, resource usage, bottlenecks, async performance"
+    /design: "Data models, service boundaries, caching, gRPC/GraphQL schemas"
     
 Analyzer_Persona:
   Flag: "--persona-analyzer"
@@ -180,6 +187,13 @@ Conflicting_Personas:
 ```yaml
 File_Based_Activation:
   "*.tsx|*.jsx|*.css": "--persona-frontend"
+  "*.astro": "--persona-frontend"
+  "*.rs": "--persona-backend"
+  "*.go": "--persona-backend"
+  "*.proto": "--persona-backend"
+  "*.kt": "--persona-frontend"
+  "*.swift": "--persona-frontend"
+  "*.mojo": "--persona-performance"
   "*.test.*|*.spec.*": "--persona-qa"
   "*api*|*server*|*db*": "--persona-backend"
   "*security*|*auth*": "--persona-security"
@@ -190,6 +204,15 @@ Context_Based_Activation:
   "teach|learn|explain": "--persona-mentor"
   "refactor|cleanup|improve": "--persona-refactorer"
   "design|architecture|system": "--persona-architect"
+  "grpc|tonic|axum": "--persona-backend"
+  "solid|astro|bun": "--persona-frontend"
+  "compose|swiftui": "--persona-frontend"
+  "graphql|async-graphql": "--persona-backend"
+  "rust|cargo": "--persona-backend"
+  "go|golang": "--persona-backend"
+  "android|jetpack": "--persona-frontend"
+  "ios|swift": "--persona-frontend"
+  "mojo|ml|ai": "--persona-performance"
   
 Command_Activation:
   /analyze: "Context-dependent persona selection"

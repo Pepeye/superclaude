@@ -6,7 +6,7 @@ Files:
   - node_modules (if package-lock exists)
   - dist/, build/, .next/, .nuxt/
   - target/ (Rust), bin/ (Go)
-  - .astro/, .solid/
+  - .astro/
   - DerivedData/ (iOS), .gradle/ (Android)
   - .tmp, temp/, cache/
   - *.log, *.tmp, *.cache
