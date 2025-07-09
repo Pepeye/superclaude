@@ -50,6 +50,35 @@ Examples:
 
 @include shared/quality-patterns.yml#Root_Cause_Analysis
 
+## Quick Setup Checklist for AI-Context Tools
+
+1. **Create Navigation Tools** - Identify architectural elements, create summarization commands
+2. **Implement Logging Tools** - Set up combined log viewing, error filtering  
+3. **Add Status Tools** - System overview, health checks, environment verification
+4. **Document Usage** - Add project CLAUDE.md with tools section
+
+## Project Integration Template
+
+```markdown
+# Project Name
+
+## AI-Context Tools (Essential Navigation)
+
+```bash
+# Navigation - START HERE
+just list-services    # Service/API discovery
+just list-types       # Data structures
+just list-endpoints   # Available interfaces
+
+# Status & Logs - RAPID DIAGNOSIS
+just status-all       # System overview
+just logs-tail        # Recent activity (last 20 lines)
+just logs-errors      # Error summary
+```
+```
+
+This approach provides context-efficient development tools that prevent AI spelunking while maintaining professional standards across all projects.
+
 ## Deliverables
 
 **Root Cause Report:** Issue description | Evidence collected | Analysis process | Root cause identified | Fix implemented
