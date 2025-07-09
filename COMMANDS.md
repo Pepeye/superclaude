@@ -107,14 +107,32 @@ Build projects, features, and components using modern stack templates.
 - `--feature` - Implement feature using existing patterns
 - `--tdd` - Test-driven development workflow
 - `--react` - React with Vite, TypeScript, Router
+- `--solid` - Solid.js with Vite and TypeScript
+- `--astro` - Astro static site generator with TypeScript
+- `--bun` - Bun runtime/bundler integration
 - `--api` - Express.js API with TypeScript
+- `--bun-api` - Bun.js/TypeScript backend with Elysia/Hono
+- `--rust` - Rust backend with Axum framework
+- `--grpc` - gRPC services (Rust with Tonic, Go)
+- `--gql` - GraphQL with Async-GraphQL (Rust)
+- `--go` - Go backend with Gin/Fiber
+- `--py` - Python backend with FastAPI
+- `--mojo` - Mojo AI/ML backend
 - `--fullstack` - Complete React + Node.js + Docker
 - `--mobile` - React Native with Expo
+- `--android` - Android with Jetpack Compose
+- `--ios` - iOS with SwiftUI
+- `--native` - Both Android (Jetpack Compose) + iOS (SwiftUI)
 - `--cli` - Commander.js CLI with testing
 
 **Examples:**
 ```bash
 /build --init --react --magic --tdd         # New React app with AI components
+/build --solid --bun --tdd                  # Solid.js with Bun runtime
+/build --astro --rust --grpc                # Astro frontend + Rust gRPC backend
+/build --android --rust --gql               # Android app + Rust GraphQL API
+/build --ios --go --grpc                    # iOS app + Go gRPC services
+/build --bun-api --native --tdd             # Bun backend + native mobile apps
 /build --feature "auth system" --tdd        # Feature with tests
 /build --api --openapi --seq                # API with documentation
 ```
@@ -371,6 +389,7 @@ Professional system design with specifications.
 - `--api` - REST/GraphQL design
 - `--ddd` - Domain-driven design
 - `--microservices` - Microservices architecture
+- `--modm` - Modular monolith architecture pattern
 - `--event-driven` - Event patterns
 - `--openapi` - OpenAPI specs
 - `--graphql` - GraphQL schema
@@ -380,6 +399,8 @@ Professional system design with specifications.
 **Examples:**
 ```bash
 /design --api --ddd --openapi --seq      # API with DDD
+/design --modm --grpc --seq              # Modular monolith with gRPC
+/design --api --modm --gql               # GraphQL API in modular monolith
 /design --microservices --event-driven   # Microservices design
 ```
 
