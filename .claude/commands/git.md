@@ -35,6 +35,10 @@ Git operations:
 
 @include shared/execution-patterns.yml#Git_Integration_Patterns
 
+## Intelligent Merge Conflict Resolution
+
+@include shared/execution-patterns.yml#Intelligent_Conflict_Resolution
+
 ## Git Standards & Professional Workflow
 
 ### Commit Types (Single Letter)
