@@ -324,13 +324,97 @@ Git_Workflows:
       Release: "Admin approval required"
       Feature: "Auto-delete after merge"
       
-  Conflict_Resolution:
-    Detection: "Auto-detect during pull/merge"
-    Strategies:
-      Simple: "Auto-resolve if non-overlapping"
-      Complex: "Interactive 3-way merge"
-      Binary: "Choose version explicitly"
-    Recovery:
+  Intelligent_Conflict_Resolution:
+    Expert_Process:
+      Step_1: "Check current git status to understand situation"
+      Step_2: "Identify all files with merge conflicts"
+      Step_3_Analysis:
+        Read_Versions: "Understand both versions (ours and theirs)"
+        Understand_Intent: "Comprehend the intent of both changes"
+        Use_GitHub_CLI: "Check PRs and context if available"
+        Plan_Resolution: "Think hard and plan how to resolve each conflict"
+      Step_4_Resolution:
+        Intelligent_Merge: "Combine both changes when possible"
+        Incompatible_Changes_Priority:
+          - "Maintains backward compatibility"
+          - "Has better test coverage"
+          - "Follows project coding standards better"
+          - "Is more performant"
+        Clean_Markers: "Remove all conflict markers (<<<<<<<, =======, >>>>>>>)"
+      Step_5_Verification: "Verify syntax is correct after resolution"
+      Step_6_Testing: "Run relevant tests to ensure nothing is broken"
+      Step_7_Staging: "Stage the resolved files"
+      Step_8_Summary: "Provide summary of all resolutions made"
+      
+    Pre_Resolution_Analysis:
+      Branch_Understanding:
+        - "git log --oneline origin/main..HEAD"
+        - "git log --oneline HEAD..origin/main"
+      Context_Research:
+        - "git log --grep='fix' --grep='feat' --oneline -20"
+        - "Use GitHub CLI to check related issues/PRs"
+      Conflict_Classification: "Identify type (feature vs feature, fix vs refactor, etc.)"
+      Strategic_Planning: "Think hard about findings and plan accordingly"
+      
+    Resolution_Strategies:
+      Source_Code_Conflicts:
+        Approach: "Understand business logic of both changes"
+        Merge_Complementary: "Merge both features if complementary"
+        Conflict_Priority: "Check which has better test coverage"
+        Related_Files: "Look for related files that might need updates"
+        
+      Test_File_Conflicts:
+        Approach: "Usually merge both sets of tests"
+        Duplicates: "Ensure no duplicate test names"
+        Descriptions: "Update test descriptions if needed"
+        
+      Configuration_Files:
+        Package_JSON: "Merge dependencies and scripts"
+        Environment: "Include all new variables"
+        CI_CD: "Merge all jobs unless duplicate"
+        
+      Documentation_Conflicts:
+        Content: "Merge both documentation updates"
+        Consistency: "Ensure consistency in terminology"
+        TOC: "Update table of contents if needed"
+        
+      Lock_Files:
+        Strategy: "Delete and regenerate after resolving package.json/pyproject.toml"
+        
+    Guidelines:
+      Core_Principles:
+        - "NEVER just pick one side blindly - understand both changes"
+        - "Preserve the intent of both branches when possible"
+        - "Look for semantic conflicts (code that merges cleanly but breaks functionality)"
+        - "If unsure, explain the conflict and ask for guidance"
+        - "Always test after resolution if tests are available"
+        - "Consider the broader context of the codebase"
+        
+    Required_Commands:
+      Status_Check: "git status - Check current state"
+      Diff_Analysis: "git diff - Understand changes"
+      History_Review: "git log --oneline -n 20 --graph --all - Understand recent history"
+      File_Reading: "Read conflicted files to understand conflicts"
+      File_Editing: "Edit files to resolve conflicts"
+      Staging: "git add <file> - Stage resolved files"
+      Testing: "Run tests with appropriate commands (npm test, pytest, etc.)"
+      GitHub_CLI: "Use gh command if available for PR/issue context"
+      
+    Post_Resolution_Verification:
+      Code_Quality:
+        - "Run linters to check code style"
+        - "Run type checkers if applicable"
+        - "Run test suite"
+        - "Check for semantic conflicts"
+        - "Verify no debugging code was left in"
+        
+    Final_Steps:
+      Summary: "Create detailed summary of all resolutions"
+      Uncertainty_Marking: "Mark uncertain resolutions with TODO comments"
+      Testing_Suggestions: "Suggest additional testing that might be needed"
+      File_Staging: "Stage all resolved files"
+      
+    Recovery_Fallback:
       Abort: "git merge --abort → restore state"
       Stash: "git stash → try different approach"
       Branch: "Create conflict-resolution branch"
