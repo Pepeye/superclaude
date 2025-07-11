@@ -6,7 +6,6 @@
 
 ## Universal Execution Lifecycle
 
-```yaml
 Standard_Lifecycle:
   Pre_Execution:
     Risk_Assessment:
@@ -27,7 +26,7 @@ Standard_Lifecycle:
       Cache: "Previous results for efficiency"
       Lock: "Prevent concurrent modifications"
       MCP_Cache_Init: "@include mcp-cache-patterns.yml#Cache_Storage"
-      
+
   During_Execution:
     Progress_Monitoring:
       Track: ["Operation progress", "Resource usage", "Error rates", "Token consumption"]
@@ -37,7 +36,7 @@ Standard_Lifecycle:
       Fallback: ["Use alternatives if primary fails", "Degrade gracefully"]
     Error_Handling:
       "@include recovery-state-patterns.yml#Recovery_Framework"
-      
+
   Post_Execution:
     Verification:
       Confirm: ["Expected outcomes achieved", "No side effects", "State consistent"]
@@ -48,11 +47,9 @@ Standard_Lifecycle:
     Reporting:
       Generate: ["Success/failure report", "Performance metrics", "Recommendations"]
       Store: ".claudedocs/lifecycle/execution-{timestamp}.md"
-```
 
 ## MCP Server Registry & Orchestration
 
-```yaml
 Servers:
   Context7:
     Purpose: "Library documentation and code examples"
@@ -63,7 +60,7 @@ Servers:
       - get-library-docs: "Fetch up-to-date documentation"
     Success_Rate: "Very high for popular libraries"
     Fallback: "WebSearch official docs"
-    
+
   Sequential:
     Purpose: "Step-by-step complex problem solving"
     Best_For: ["Architecture", "debugging", "system design", "root cause analysis"]
@@ -72,7 +69,7 @@ Servers:
       - sequentialthinking: "Adaptive multi-step reasoning"
     Success_Rate: "High for complex problems"
     Fallback: "Native step-by-step analysis"
-    
+
   Magic:
     Purpose: "UI component generation with 21st.dev"
     Best_For: ["React/Vue components", "UI patterns", "prototypes"]
@@ -84,7 +81,7 @@ Servers:
       - logo_search: "Find company logos in TSX/JSX/SVG"
     Success_Rate: "High for common components"
     Fallback: "Search existing components in project"
-    
+
   Puppeteer:
     Purpose: "Browser automation and testing"
     Best_For: ["E2E tests", "screenshots", "web scraping", "performance testing"]
@@ -118,18 +115,16 @@ MCP_Control_Flags:
     --no-magic: "Disable Magic"
     --pup: "Enable Puppeteer only"
     --no-pup: "Disable Puppeteer"
-    
+
   Combined:
     --all-mcp: "Enable all MCP servers"
     --no-mcp: "Disable all MCP servers (native tools only)"
-    
+
   Priority: "Explicit flags > Command defaults > Context triggers"
   Override: "--no-mcp overrides all individual flags"
-```
 
 ## Chain Execution Patterns
 
-```yaml
 Execution_Types:
   Sequential: "A→B→C | Linear progression w/ context handoff"
   Parallel: "A&B&C | Concurrent execution w/ result aggregation"
@@ -161,7 +156,7 @@ Intelligent_MCP_Selection:
     design + --api: "Suggest --seq --c7 for comprehensive design"
     troubleshoot + --investigate: "Suggest --seq for root cause analysis"
     improve + --performance: "Suggest --seq --pup for optimization analysis"
-    
+
   Context_Triggers:
     Import_Errors: "→ C7 lookup REQUIRED"
     Complex_Debugging: "→ Sequential thinking"
@@ -170,7 +165,6 @@ Intelligent_MCP_Selection:
 
 ## Automatic MCP Context Detection
 
-```yaml
 Context_Detection_Patterns:
   Library_References:
     Triggers:
@@ -180,24 +174,24 @@ Context_Detection_Patterns:
       - "@\\w+/"                           # Scoped packages
     Action: "→ C7 resolve-library-id REQUIRED"
     Blocking: "Implementation blocked until documentation found"
-    
+
   Complex_Problem_Indicators:
     Keywords: ["architecture", "design", "system", "complex", "debug", "investigate", "root cause", "bottleneck"]
     Error_Patterns: ["multiple errors", "cascading failures", "performance degradation"]
     Scope_Indicators: ["multi-file", "cross-component", "system-wide"]
     Action: "→ Sequential thinking RECOMMENDED"
-    
+
   UI_Component_Requests:
     Keywords: ["button", "form", "modal", "dialog", "dropdown", "table", "chart", "dashboard", "component"]
     Framework_Mentions: ["react", "vue", "svelte", "angular"]
     File_Types: ["*.tsx", "*.jsx", "*.vue", "*.svelte"]
     Action: "→ Magic builder RECOMMENDED"
-    
+
   Browser_Automation_Needs:
     Keywords: ["screenshot", "e2e", "integration test", "browser", "selenium", "automation"]
     Test_Patterns: ["cypress", "playwright", "puppeteer", "webdriver"]
     Action: "→ Puppeteer automation RECOMMENDED"
-    
+
 Research_Requirements:
   External_Library_Detection:
     Pattern: "Any import/require from non-relative path"
@@ -207,13 +201,13 @@ Research_Requirements:
       2: "If not found → WebSearch '[library] official documentation'"
       3: "Extract: Installation, basic usage, common patterns"
       4: "Block implementation if confidence < 90%"
-      
+
   Unknown_Pattern_Detection:
     Triggers: ["unfamiliar syntax", "new framework", "unknown API"]
     Phrases_To_Block: ["might work", "probably", "I think", "typical pattern"]
     Required_Instead: "Documentation confirms", "Official source states"
     Action: "Research → Verify → Document source → Implement"
-    
+
   Low_Confidence_Indicators:
     Uncertainty_Language: ["maybe", "should", "typically", "usually"]
     Missing_Evidence: "No source citation available"
@@ -225,34 +219,31 @@ Auto_Activation_Rules:
     /analyze + complexity_indicators: "Suggest --seq for deep analysis"
     /test + browser_keywords: "Suggest --pup for automation"
     /explain + library_name: "Suggest --c7 for documentation"
-    
+
   File_Based:
     "*.tsx|*.jsx": "Frontend context → --magic available"
     "*.test.*|*.spec.*": "Testing context → --pup available"
     "*api*|*server*": "Backend context → --seq for design"
-    
+
   Error_Based:
     "ModuleNotFoundError": "→ C7 lookup REQUIRED"
     "TypeError": "→ Sequential analysis RECOMMENDED"
     "Build failures": "→ Sequential troubleshooting"
-    
+
 Override_Controls:
   User_Flags_Priority: "Explicit flags > Auto-detection > Defaults"
   Disable_All: "--no-mcp overrides all auto-detection"
   Selective_Disable: "--no-c7, --no-seq, --no-magic, --no-pup"
   Force_Enable: "--c7, --seq, --magic, --pup override context detection"
-```
-    
-  Synergistic_Patterns:
-    --magic + --pup: "Generate UI components and test immediately"
-    --seq + --c7: "Complex analysis with authoritative documentation"
-    --seq + --think-hard: "Deep architectural analysis with documentation"
-    --c7 + --uc: "Research with compressed output for token efficiency"
-```
+
+Synergistic_Patterns:
+  --magic + --pup: "Generate UI components and test immediately"
+  --seq + --c7: "Complex analysis with authoritative documentation"
+  --seq + --think-hard: "Deep architectural analysis with documentation"
+  --c7 + --uc: "Research with compressed output for token efficiency"
 
 ## Development Workflows
 
-```yaml
 Full_Stack_Development:
   Chain: "load→analyze→design→build→test→scan→deploy"
   Flags: ["--think", "--magic", "--validate"]
@@ -283,11 +274,9 @@ Tech_Debt_Reduction:
   Flags: ["--think-hard", "--refactor", "--quality"]
   MCP_Usage: ["--seq for analysis", "--c7 for patterns"]
   Time: "Extended session"
-```
 
 ## Git Integration Patterns
 
-```yaml
 Git_Workflows:
   Auto_Safety_Checks:
     Before_Commit:
@@ -304,15 +293,15 @@ Git_Workflows:
       - "Test for conflicts"
       - "Verify branch policies"
       - "Check approval requirements"
-      
+
   Commit_Standards:
-    Format: "{type}: {description}\n\n{body}\n\n🤖 Generated with [Claude Code]\n\nCo-Authored-By: Claude"
+    Format: "{type}: {description}\\n\\n{body}\\n\\n🤖 Generated with [Claude Code]\\n\\nCo-Authored-By: Claude"
     Types: ["feat", "fix", "docs", "style", "refactor", "test", "chore"]
     Validation:
       - "Type matches change nature"
       - "Description < 50 chars"
       - "Body explains why, not what"
-      
+
   Branch_Management:
     Strategy:
       Feature: "feature/{description}"
@@ -323,7 +312,7 @@ Git_Workflows:
       Main: "No direct push, PR required"
       Release: "Admin approval required"
       Feature: "Auto-delete after merge"
-      
+
   Intelligent_Conflict_Resolution:
     Expert_Process:
       Step_1: "Check current git status to understand situation"
@@ -345,7 +334,7 @@ Git_Workflows:
       Step_6_Testing: "Run relevant tests to ensure nothing is broken"
       Step_7_Staging: "Stage the resolved files"
       Step_8_Summary: "Provide summary of all resolutions made"
-      
+
     Pre_Resolution_Analysis:
       Branch_Understanding:
         - "git log --oneline origin/main..HEAD"
@@ -355,32 +344,32 @@ Git_Workflows:
         - "Use GitHub CLI to check related issues/PRs"
       Conflict_Classification: "Identify type (feature vs feature, fix vs refactor, etc.)"
       Strategic_Planning: "Think hard about findings and plan accordingly"
-      
+
     Resolution_Strategies:
       Source_Code_Conflicts:
         Approach: "Understand business logic of both changes"
         Merge_Complementary: "Merge both features if complementary"
         Conflict_Priority: "Check which has better test coverage"
         Related_Files: "Look for related files that might need updates"
-        
+
       Test_File_Conflicts:
         Approach: "Usually merge both sets of tests"
         Duplicates: "Ensure no duplicate test names"
         Descriptions: "Update test descriptions if needed"
-        
+
       Configuration_Files:
         Package_JSON: "Merge dependencies and scripts"
         Environment: "Include all new variables"
         CI_CD: "Merge all jobs unless duplicate"
-        
+
       Documentation_Conflicts:
         Content: "Merge both documentation updates"
         Consistency: "Ensure consistency in terminology"
         TOC: "Update table of contents if needed"
-        
+
       Lock_Files:
         Strategy: "Delete and regenerate after resolving package.json/pyproject.toml"
-        
+
     Guidelines:
       Core_Principles:
         - "NEVER just pick one side blindly - understand both changes"
@@ -389,7 +378,7 @@ Git_Workflows:
         - "If unsure, explain the conflict and ask for guidance"
         - "Always test after resolution if tests are available"
         - "Consider the broader context of the codebase"
-        
+
     Required_Commands:
       Status_Check: "git status - Check current state"
       Diff_Analysis: "git diff - Understand changes"
@@ -399,7 +388,7 @@ Git_Workflows:
       Staging: "git add <file> - Stage resolved files"
       Testing: "Run tests with appropriate commands (npm test, pytest, etc.)"
       GitHub_CLI: "Use gh command if available for PR/issue context"
-      
+
     Post_Resolution_Verification:
       Code_Quality:
         - "Run linters to check code style"
@@ -407,44 +396,40 @@ Git_Workflows:
         - "Run test suite"
         - "Check for semantic conflicts"
         - "Verify no debugging code was left in"
-        
+
     Final_Steps:
       Summary: "Create detailed summary of all resolutions"
       Uncertainty_Marking: "Mark uncertain resolutions with TODO comments"
       Testing_Suggestions: "Suggest additional testing that might be needed"
       File_Staging: "Stage all resolved files"
-      
+
     Recovery_Fallback:
       Abort: "git merge --abort → restore state"
       Stash: "git stash → try different approach"
       Branch: "Create conflict-resolution branch"
-```
 
 ## Checkpoint & Recovery System
 
-```yaml
 Checkpoint_Integration:
   "@include recovery-state-patterns.yml#Checkpoint_Structure"
   "@include recovery-state-patterns.yml#Automatic_Triggers"
   "@include recovery-state-patterns.yml#Recovery_Commands"
   "@include recovery-state-patterns.yml#Recovery_Framework"
-```
 
 ## Token Budget Management
 
-```yaml
 Cost_Categories:
   Native_Tools: "No token cost"
   Light_MCP: "Minimal usage"
   Medium_MCP: "Moderate usage"
   Heavy_MCP: "Extensive usage"
-  
+
 Budget_Escalation:
   1: "Native first for simple tasks"
   2: "C7 for library questions"
   3: "Sequential for complex analysis"
   4: "Combine MCPs for synergy"
-  
+
 Abort_Conditions:
   Context_Usage: "High context usage → native tools"
   Timeout_Errors: "MCP timeout/error → fallback"
@@ -452,14 +437,12 @@ Abort_Conditions:
 
 Failover_Integration:
   "@include recovery-state-patterns.yml#Standard_Recovery_Patterns"
-  
+
 Error_Recovery_Standards:
   "@include recovery-state-patterns.yml#Standard_Recovery_Patterns"
-```
 
 ## Performance & Monitoring
 
-```yaml
 Performance_Tracking:
   Metrics:
     Build_Times: "Track duration trends"
@@ -486,23 +469,21 @@ Server_Performance:
     Sequential: "Moderate duration (complexity dependent)"
     Magic: "Fast to moderate (component complexity)"
     Puppeteer: "Fast to moderate (page load dependent)"
-    
+
   Resource_Usage:
     Context7: "Low CPU, Medium Network"
     Sequential: "High CPU, Low Network"
     Magic: "Medium CPU, High Network"
     Puppeteer: "Medium CPU, Low Network"
-    
+
   Reliability_Scores:
     Context7: "Very high (dependent on library availability)"
     Sequential: "Very high (internal processing)"
     Magic: "High (external service dependency)"
     Puppeteer: "Very high (browser dependency)"
-```
 
 ## Command Integration
 
-```yaml
 Chain_Commands:
   Execute:
     Predefined: "/chain 'feature-dev' --magic --think"
@@ -521,21 +502,19 @@ Command_Hooks:
     Pre: ["Clean artifacts", "Verify dependencies", "Set environment", "Check MCP health"]
     During: ["Monitor progress", "Cache layers", "Handle errors", "Track token usage"]
     Post: ["Verify output", "Run smoke tests", "Update manifests", "Log MCP performance"]
-    
+
   Test_Hooks:
     Pre: ["Reset test data", "Start services", "Clear caches", "Connect Puppeteer if needed"]
     During: ["Track coverage", "Monitor performance", "Capture logs", "Handle browser events"]
     Post: ["Generate reports", "Clean test data", "Archive results", "Disconnect browser"]
-    
+
   Deploy_Hooks:
     Pre: ["Verify environment", "Check permissions", "Backup current", "Validate with Sequential"]
     During: ["Monitor health", "Track progress", "Handle rollback", "Log deployment events"]
     Post: ["Verify deployment", "Run health checks", "Update docs", "Generate deployment report"]
-```
 
 ## Estimation Methodology
 
-```yaml
 Estimation_Methodology:
   Time_Estimation_Framework:
     Development_Phases:
@@ -544,48 +523,46 @@ Estimation_Methodology:
       Testing: "Unit, integration & system testing: 15-25% of total"
       Integration: "System integration & deployment: 5-10% of total"
       Buffer: "Unknown unknowns & contingency: 10-20% of total"
-      
+
   Complexity_Scoring:
     Low_Complexity: "Well-understood, established patterns: 1-3 days"
     Medium_Complexity: "Some unknowns, moderate integration: 3-10 days"
     High_Complexity: "Research required, complex integration: 1-4 weeks"
     Very_High_Complexity: "New technology, architectural changes: 1-3 months"
-    
+
   Team_Velocity_Factors:
     Solo_Developer: "Multiplier: 1.0 (baseline)"
     Small_Team_2_3: "Multiplier: 0.8 (coordination overhead)"
     Medium_Team_4_8: "Multiplier: 0.6 (communication overhead)"
     Large_Team_9Plus: "Multiplier: 0.4 (significant coordination)"
-    
+
   Risk_Assessment_Framework:
     Technical_Risks:
       New_Technology: "Learning curve impact: +25-50% time"
       Complex_Integration: "Multiple system touchpoints: +20-40% time"
       Performance_Requirements: "Optimization needs: +15-30% time"
       Legacy_System_Integration: "Technical debt impact: +30-60% time"
-      
+
     Resource_Risks:
       Key_Person_Dependency: "Single expert required: +20-40% time"
       External_Dependencies: "Third-party deliverables: +10-30% time"
       Skill_Gap: "Team learning required: +25-50% time"
-      
+
   Estimation_Output_Format:
     Three_Point_Estimation:
       Optimistic: "Best case scenario (10% probability)"
       Realistic: "Most likely outcome (50% probability)"
       Pessimistic: "Worst case scenario (90% probability)"
-      
+
     Confidence_Levels:
       High_Confidence: "Well-understood requirements: ±10%"
       Medium_Confidence: "Some unknowns present: ±25%"
       Low_Confidence: "Significant uncertainties: ±50%"
-      
+
     Resource_Planning:
       Developer_Hours: "Total development effort"
       QA_Hours: "Testing & quality assurance effort"
       DevOps_Hours: "Deployment & infrastructure setup"
       Project_Management: "Coordination & communication overhead"
-```
 
----
-*Execution Patterns v2 - Unified workflow system, MCP orchestration, git operations, and execution lifecycle*
+# Execution Patterns v2 - Unified workflow system, MCP orchestration, git operations, and execution lifecycle
